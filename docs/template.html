@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<!-- NOTE: 页面标题 -->
+	<title>模板说明</title>
+	<!-- Spectre.css -->
+	<link rel="stylesheet" href="../spectre/dist/spectre.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-icons.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-exp.css">
+	<!-- Notebook.css -->
+	<link rel="stylesheet" href="../jac/notebook.css">
+</head>
+<body>
+<div class="off-canvas off-canvas-sidebar-show">
+	<nav id="topbar">
+		<a class="btn btn-primary btn-action" href="#sidebar">
+			<i class="icon icon-menu"></i>
+		</a>
+		<!-- NOTE: 跳转菜单 -->
+		<div class="dropdown dropdown-right">
+			<a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-location"></i></a>
+			<ul class="menu">
+				<li class="menu-item"><a href="#top"><i class="icon icon-upward"></i> 顶部</a></li>
+				<li class="menu-item"><a href="#note-static">静态页面</a></li>
+				<li class="menu-item"><a href="#note-document">文档模板</a></li>
+				<li class="menu-item"><a href="#note-step">多步页面模板</a></li>
+				<li class="menu-item"><a href="#note-calendar">日历模板</a></li>
+				<li class="menu-item"><a href="#note-timeline">时间轴模板</a></li>
+				<li class="menu-item"><a href="#note-filter">筛选页面模板</a></li>
+				<li class="menu-item"><a href="#bottom"><i class="icon icon-downward"></i> 底部</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside id="sidebar" class="off-canvas-sidebar">
+		<div id="brand">
+			<a href="../index.html">
+				<i class="icon icon-edit"></i> 记事本
+			</a>
+		</div>
+		<!-- NOTE: 使用 config.js 配置侧边菜单 -->
+		<nav id="menu">
+		</nav>
+	</aside>
+
+	<a class="off-canvas-overlay" href="#close"></a>
+
+	<section id="content" class="off-canvas-content">
+		<div class="container">
+			<header id="top">
+				<!-- NOTE: 页面标题 -->
+				<h1 class="title">模板说明<a class="anchor" href="#top" aria-hidden="true">#</a></h1>
+
+				<!-- NOTE: 面包屑导航 -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="../index.html">首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="index.html">帮助文档</a>
+					</li>
+				</ul>
+			</header>
+
+			<article id="note">
+<!-- NOTE: 下面是正文 -->
+<section id="note-static">
+	<h2 class="title">静态页面<a class="anchor" href="#note-static" aria-hidden="true">#</a></h2>
+
+	<p>静态页面<code>static.html</code>内不包含任何动态内容，其编辑文档的格式是<mark>HTML</mark>，这也是记事本的默认编写方式。记事本使用<a href="https://github.com/picturepan2/spectre" target="_blank">Spectre.css</a>作为默认的文档样式，您可以访问<a href="https://picturepan2.github.io/spectre/" target="_blank">Spectre.css 官网</a>了解这些预设的 HTML 标记和样式。</p>
+
+	<p>由于纯静态页面很难处理重复性内容，而且很难扩展，故使用时会非常不方便。该页面一般仅用作存档，日常工作中通常使用文档模板作为编辑内容时的起始模板。</p>
+</section>
+
+<section id="note-document">
+	<h2 class="title">文档模板<a class="anchor" href="#note-document" aria-hidden="true">#</a></h2>
+
+	<p>文档模板<code>document.html</code>实现了编辑文档的基本功能，包括对重复性内容（如左侧菜单栏）的处理（配置文件<code>jac/config.js</code>），并基于<a href="https://github.com/markedjs/marked" target="_blank">Marked.js</a>实现了对<mark>Markdown</mark>类型文本的处理，您可以访问<a href="https://marked.js.org" target="_blank">Marked.js 官网</a>查阅帮助文档。另外，Marked.js 默认支持 GitHub Flavored Markdown 格式，其语法可以在<a href="https://github.github.com/gfm/" target="_blank">GFM 官方说明</a>找到。速查手册中也有关于<a href="../cheat/markdown.html">Markdown 语法</a>的详细说明。</p>
+
+	<p>在段落中使用 Markdown 时，应使用<code>class="markdown"</code>标记段落（默认值，可以在配置文件中修改）。并且为了避免 Markdown 对 HTML 代码的干扰，应使用 HTML 注释<code>&lt!-- ... --&gt;</code>包裹 Markdown 代码块，其基本结构为：</p>
+
+	<pre class="code" data-lang="HTML"><code>&lt;section class="markdown"&gt;
+&lt;!-- NOTE: 一句话说明，没有也无所谓
+
+这里是 Markdown 格式的正文。
+
+--&gt;
+&lt;/section&gt;</code></pre>
+
+	<p>鉴于文档模板的便捷性，您在编写文字时，可以<mark>用文档模板作为起始模板，复制一个新文件，重命名，并在它的基础上进行修改</mark>。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：文档模板中的路径都是从<code>docs</code>目录开始算起。如果新建的文档不在<code>docs</code>目录中，则使用文档模板作为起始模板时，记得同时修改所有与路径相关的内容，如<code>href</code>、<code>src</code>属性等。</p>
+
+		<p><span class="label label-success">提示</span>：您也可以在其它目录中各自做一份文档模板，作为该目录中文件的默认模板。</p>
+	</blockquote>
+</section>
+
+<section id="note-step">
+	<h2 class="title">多步页面模板<a class="anchor" href="#note-step" aria-hidden="true">#</a></h2>
+
+	<p>多步页面模板<code>step.html</code>用于在单一页面内将一项工作分为少数几个依次递进的工作步骤，并对这些工作步骤分别展开说明。</p>
+
+	<p>当工作步骤太多时，使用单一的多步页面也许并不合适，这时您可以改为选用<a href="#note-timeline">时间轴模板</a>，或者干脆将它们分为几项工作，并分别在多个页面内予以说明。</p>
+</section>
+
+<section id="note-calendar">
+	<h2 class="title">日历模板<a class="anchor" href="#note-calendar" aria-hidden="true">#</a></h2>
+
+	<p>日历模板<code>calendar.html</code>实现了简单的日历牌和日历标注功能。日历牌以表格样式（实际不是表格）显示一个月内的公历信息，日历标注功能允许您在日历牌上直接标注一些记录事项。</p>
+
+	<p>您虽然可以直接在日历上标注一些信息，但受限于页面宽度，可以记录的信息实际上并不多。这时您可以另起一段文字补充说明，也可以选择与<a href="#note-timeline">时间轴模板</a>建立链接，这样就可以从日历牌信息跳转到时间轴内的某一具体记录。参考<a href="calendar.html">日历模板</a>的演示内容。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：日历模板尚未实现动态生成功能。</p>
+	</blockquote>
+</section>
+
+<section id="note-timeline">
+	<h2 class="title">时间轴模板<a class="anchor" href="#note-timeline" aria-hidden="true">#</a></h2>
+
+	<p>时间轴模板<code>timeline.html</code>依据时间轴分步骤显示工作进程。由于时间轴采用的是纵向排列，它可以记录的项目非常多。</p>
+
+	<p>虽然名为时间轴，但实际上只要是分步骤依次递进的过程，都可以采用时间轴作为模板。如之前提到的<a href="#note-step">多步页面模板</a>和<a href="#note-calendar">日历模板</a>等，都可以通过某种方式转换为时间轴模板，以便容纳大量的信息。</p>
+
+	<blockquote>
+		<p><span class="label label-success">提示</span>：时间轴本身容纳的信息已经很多了，所以它通常不需要更多的补充信息。这时，跳转菜单可以直接定位到时间轴的定位点上，以便用户快速跳转和浏览。</p>
+	</blockquote>
+</section>
+
+<section id="note-filter">
+	<h2 class="title">筛选页面模板<a class="anchor" href="#note-filter" aria-hidden="true">#</a></h2>
+
+	<p>筛选页面模板<code>filter.html</code>实现多个乱序项目的分组筛选功能。筛选页面使用<code>tag-1</code>到<code>tag-8</code>可标记八种不同的标签，使用<code>tag-0</code>显示全部项目（取消筛选）。具体可直接参见<a href="filter.html">筛选页面模板</a>的演示内容。</p>
+</section>
+<!-- NOTE: 上面是正文 -->
+			</article>
+
+
+			<footer id="bottom">
+				<!-- NOTE: 自动显示当前页面路径 -->
+				<div id="pathname" class="divider text-center"></div>
+
+				<!-- NOTE: 页脚导航 -->
+				<ul class="pagination">
+					<li class="page-item page-prev">
+						<a href="index.html">
+							<div class="page-item-subtitle"><i class="icon icon-arrow-left"></i> 上一页</div>
+							<div class="page-item-title h5">介绍与配置</div>
+						</a>
+					</li>
+					<li class="page-item page-next">
+						<a href="static.html">
+							<div class="page-item-subtitle">下一页 <i class="icon icon-arrow-right"></i></div>
+							<div class="page-item-title h5">静态页面</div>
+						</a>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</section>
+</div>
+<script src="../jac/config.js"></script>
+<script src="../jac/notebook.js"></script>
+</body>
+</html>

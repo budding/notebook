@@ -1,0 +1,157 @@
+/**
+ * 基于 Spectre.css 的记事本样式。
+ * @see https://github.com/picturepan2/spectre
+ */
+body {
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0.5em 0;
+}
+
+blockquote {
+	margin: 1em 0;
+}
+
+ins, u {
+	border-bottom: .05rem solid;
+	text-decoration: none;
+}
+
+.accordion input:checked ~ .accordion-body,
+.accordion[open] .accordion-body {
+	max-height: none;
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child)::before {
+	padding-right: .2rem;
+}
+
+.timeline-content p {
+	margin-top: 0;
+}
+
+.icon {
+	vertical-align: text-top;
+}
+
+#topbar {
+	position: fixed;
+	top: .5rem;
+	right: .5rem;
+	z-index: 100;
+}
+
+#topbar .btn {
+	margin: 0 .2rem;
+}
+
+#topbar .btn-action {
+	display: none;
+}
+
+#sidebar {
+	width: 12rem;
+}
+
+#brand {
+	position: fixed;
+	padding: .5rem;
+	width: 12rem;
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+#menu {
+	position: fixed;
+	top: 2.8rem;
+	width: 12rem;
+	bottom: 1rem;
+	padding: .5rem;
+	overflow-y: auto;
+	background: #f8f9fa;
+	-webkit-overflow-scrolling: touch;
+}
+
+#menu .menu {
+	padding-left: .5rem;
+	font-size: .7rem;
+}
+
+#menu .accordion .accordion-header {
+	padding: 0;
+}
+
+#content {
+	padding: 0;
+	width: calc(100vw - 13rem);
+}
+
+#content > .container {
+	padding: 0 2rem 1.5rem 2rem;
+}
+
+#content .title {
+	position: static;
+	padding: .5rem 0;
+}
+
+#content .anchor {
+	display: none;
+	margin-left: .2rem;
+	padding: 0 .2rem;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+	#content .title {
+		position: sticky;
+		position: -webkit-sticky;
+		top: 0;
+		z-index: 10;
+	}
+
+	#content .title::before {
+		position: absolute;
+		left: -.5rem;
+		right: -.5rem;
+		top: 0;
+		bottom: 0;
+		display: block;
+		background: #fff;
+		content: "";
+		z-index: -1;
+	}
+}
+
+#content .title:hover .anchor,
+#content .anchor:focus,
+#content .anchor:hover  {
+	display: inline;
+}
+
+@media (max-width: 960px) {
+	#topbar .btn-action {
+		display: inline-block;
+	}
+
+	#brand {
+		position: static;
+	}
+
+	#menu {
+		position: static;
+	}
+
+	#content > .container {
+		padding: 0 .4rem 1.5rem;
+	}
+
+	#content .title {
+		position: static;
+	}
+
+	#content .title::before {
+		content: none;
+	}
+}

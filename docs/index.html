@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<!-- NOTE: 页面标题 -->
+	<title>介绍与配置</title>
+	<!-- Spectre.css -->
+	<link rel="stylesheet" href="../spectre/dist/spectre.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-icons.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-exp.css">
+	<!-- Notebook.css -->
+	<link rel="stylesheet" href="../jac/notebook.css">
+</head>
+<body>
+<div class="off-canvas off-canvas-sidebar-show">
+	<nav id="topbar">
+		<a class="btn btn-primary btn-action" href="#sidebar">
+			<i class="icon icon-menu"></i>
+		</a>
+		<!-- NOTE: 跳转菜单 -->
+		<div class="dropdown dropdown-right">
+			<a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-location"></i></a>
+			<ul class="menu">
+				<li class="menu-item"><a href="#top"><i class="icon icon-upward"></i> 顶部</a></li>
+				<li class="menu-item"><a href="#note-description">记事本介绍</a></li>
+				<li class="menu-item"><a href="#note-setup">使用配置</a></li>
+				<li class="menu-item"><a href="#bottom"><i class="icon icon-downward"></i> 底部</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside id="sidebar" class="off-canvas-sidebar">
+		<div id="brand">
+			<a href="../index.html">
+				<i class="icon icon-edit"></i> 记事本
+			</a>
+		</div>
+		<!-- NOTE: 使用 config.js 配置侧边菜单 -->
+		<nav id="menu">
+		</nav>
+	</aside>
+
+	<a class="off-canvas-overlay" href="#close"></a>
+
+	<section id="content" class="off-canvas-content">
+		<div class="container">
+			<header id="top">
+				<!-- NOTE: 页面标题 -->
+				<h1 class="title">介绍与配置<a class="anchor" href="#top" aria-hidden="true">#</a></h1>
+
+				<!-- NOTE: 面包屑导航 -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="../index.html">首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="index.html">帮助文档</a>
+					</li>
+				</ul>
+			</header>
+
+			<article id="note">
+<!-- NOTE: 下面是正文 -->
+<section id="note-description">
+	<h2 class="title">记事本介绍<a class="anchor" href="#note-description" aria-hidden="true">#</a></h2>
+
+	<p>记事本是一个<mark>本地 HTML 文档集合</mark>，用于组织和浏览日常记录下来的经历、思想、感悟等。它实现了：</p>
+
+	<ul>
+		<li>桌面环境（电脑）和移动环境（手机）自动适应。</li>
+		<li>HTML 和 Markdown 混合编辑。</li>
+		<li>文档分目录管理。</li>
+		<li>多级菜单，并且菜单栏基于当前页面自动展开和高亮。</li>
+	</ul>
+</section>
+
+<section id="note-setup">
+	<h2 class="title">使用配置<a class="anchor" href="#note-setup" aria-hidden="true">#</a></h2>
+
+	<ol>
+		<li>将记事本代码，通常是<code>notebook</code>文件夹，放到您经常访问和编辑的位置。
+			<blockquote>
+				<p><span class="label label-warning">注意</span>：如果记事本代码不在<code>notebook</code>目录，记得修改<code>jac/config.js</code>文件中的<code>rootPath</code>配置项。</p>
+			</blockquote>
+		</li>
+		<li>使用浏览器访问记事本目录中的<code>index.html</code>文件，浏览<a href="../index.html">记事本首页</a>。您也可以把该文件添加为书签或收藏，以便在以后随时访问。</li>
+		<li>在记事本目录（及其子目录）中任意添加或编辑<code>*.html</code>文件。您现在已经创建了属于您自己的记事本。</li>
+		<li>对于新建的文档，修改<code>jac/config.js</code>文件中的<code>menu</code>配置项以便添加到左侧菜单栏。</li>
+	</ol>
+</section>
+<!-- NOTE: 上面是正文 -->
+			</article>
+
+			<footer id="bottom">
+				<!-- NOTE: 自动显示当前页面路径 -->
+				<div id="pathname" class="divider text-center"></div>
+
+				<!-- NOTE: 页脚导航 -->
+				<ul class="pagination">
+					<li class="page-item page-next">
+						<a href="template.html">
+							<div class="page-item-subtitle">下一页 <i class="icon icon-arrow-right"></i></div>
+							<div class="page-item-title h5">模板说明</div>
+						</a>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</section>
+</div>
+<script src="../jac/config.js"></script>
+<script src="../jac/notebook.js"></script>
+</body>
+</html>

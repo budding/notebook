@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<!-- NOTE: 页面标题 -->
+	<title>Git 命令</title>
+	<!-- Spectre.css -->
+	<link rel="stylesheet" href="../spectre/dist/spectre.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-icons.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-exp.css">
+	<!-- Notebook.css -->
+	<link rel="stylesheet" href="../jac/notebook.css">
+</head>
+<body>
+<div class="off-canvas off-canvas-sidebar-show">
+	<nav id="topbar">
+		<a class="btn btn-primary btn-action" href="#sidebar">
+			<i class="icon icon-menu"></i>
+		</a>
+		<!-- NOTE: 跳转菜单 -->
+		<div class="dropdown dropdown-right">
+			<a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-location"></i></a>
+			<ul class="menu">
+				<li class="menu-item"><a href="#top"><i class="icon icon-upward"></i> 顶部</a></li>
+				<li class="menu-item"><a href="#note-start">初次安装</a></li>
+				<li class="menu-item"><a href="#note-config">配置选项</a></li>
+				<li class="menu-item"><a href="#note-config-file"><i class="icon icon-more-vert"></i> 配置文件</a></li>
+				<li class="menu-item"><a href="#note-config-command"><i class="icon icon-more-vert"></i> 配置命令</a></li>
+				<li class="menu-item"><a href="#note-config-common"><i class="icon icon-more-vert"></i> 常用配置</a></li>
+				<li class="menu-item"><a href="#note-repository">创建仓库</a></li>
+				<li class="menu-item"><a href="#note-ignore">忽略文件</a></li>
+				<li class="menu-item"><a href="#note-change">处理变更</a></li>
+				<li class="menu-item"><a href="#note-commit">提交</a></li>
+				<li class="menu-item"><a href="#note-branch">分支操作</a></li>
+				<li class="menu-item"><a href="#note-tag">打标签</a></li>
+				<li class="menu-item"><a href="#note-history">历史记录</a></li>
+				<li class="menu-item"><a href="#note-stash">储藏</a></li>
+				<li class="menu-item"><a href="#note-search">搜索</a></li>
+				<li class="menu-item"><a href="#note-remote">远程操作</a></li>
+				<li class="menu-item"><a href="#note-remote-repository"><i class="icon icon-more-vert"></i> 远程仓库</a></li>
+				<li class="menu-item"><a href="#note-remote-branch"><i class="icon icon-more-vert"></i> 远程分支</a></li>
+				<li class="menu-item"><a href="#note-revisions">修订版本</a></li>
+				<li class="menu-item"><a href="#note-alias">别名</a></li>
+				<li class="menu-item"><a href="#note-notes">对象备注</a></li>
+				<li class="menu-item"><a href="#note-interactive">交互式暂存</a></li>
+				<li class="menu-item"><a href="#note-rerere">重用解决方案</a></li>
+				<li class="menu-item"><a href="#note-clean">清理文件</a></li>
+				<li class="menu-item"><a href="#bottom"><i class="icon icon-downward"></i> 底部</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside id="sidebar" class="off-canvas-sidebar">
+		<div id="brand">
+			<a href="../index.html">
+				<i class="icon icon-edit"></i> 记事本
+			</a>
+		</div>
+		<!-- NOTE: 使用 config.js 配置侧边菜单 -->
+		<nav id="menu">
+		</nav>
+	</aside>
+
+	<a class="off-canvas-overlay" href="#close"></a>
+
+	<section id="content" class="off-canvas-content">
+		<div class="container">
+			<header id="top">
+				<!-- NOTE: 页面标题 -->
+				<h1 class="title">Git 命令<a class="anchor" href="#top" aria-hidden="true">#</a></h1>
+
+				<!-- NOTE: 面包屑导航 -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="../index.html">首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="index.html">速查手册</a>
+					</li>
+				</ul>
+			</header>
+
+			<article id="note">
+<!-- NOTE: 下面是正文 -->
+<section id="note-start">
+	<h2 class="title">初次安装<a class="anchor" href="#note-start" aria-hidden="true">#</a></h2>
+
+	<p>Linux 用户建议使用包管理器直接安装，非 Linux 用户建议在<a href="https://git-scm.com/" target="_blank">Git 官网</a>下载客户端。</p>
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：支持 XP 的最后一个版本是<code>Git-2.10.0-32-bit.exe</code>（<a href="https://github.com/git-for-windows/git/releases/download/v2.10.0.windows.1/PortableGit-2.10.0-32-bit.7z.exe">官网下载</a>），也可选用<code>TortoiseGit-1.8.16.0-32bit.msi</code>代替。</p>
+	</blockquote>
+
+	<p>官方文档<a href="https://git-scm.com/book/zh/v2/%E9%99%84%E5%BD%95-A%3A-%E5%85%B6%E5%AE%83%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84-Git-Bash-%E4%B8%AD%E7%9A%84-Git" target="_blank">Bash 中的 Git</a>中有几个命令行插件，包括自动完成和定义提示符等，可以了解一下。</p>
+</section>
+
+<section id="note-config">
+	<h2 class="title">配置选项<a class="anchor" href="#note-config" aria-hidden="true">#</a></h2>
+
+	<section id="note-config-file">
+		<h3 class="title">配置文件<a class="anchor" href="#note-config-file" aria-hidden="true">#</a></h3>
+
+		<p>以下配置文件都是纯文本格式，Git 会依次读取，后面的配置会覆盖掉前面的配置。</p>
+		<ol>
+			<li><code>/etc/gitconfig</code>：对客户端生效，使用<code>git config --system</code>读写。</li>
+			<li><code>~/.gitconfig</code>或者<code>~/.config/git/config</code>：对当前用户生效，使用<code>git config --global</code>读写。</li>
+			<li><code>REPOSITORY/.git/config</code>：对当前 REPOSITORY 版本库生效，使用<code>git config [--local]</code>读写。</li>
+		</ol>
+	</section>
+
+	<section id="note-config-command">
+		<h3 class="title">配置命令<a class="anchor" href="#note-config-command" aria-hidden="true">#</a></h3>
+
+		<p>配置命令均可使用前面提到的<code>--system</code>、<code>--global</code>、<code>--local</code>参数。<code>git config</code>的帮助文档中有所有参数的详细说明。</p>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-l" name="accordion-config-command" hidden>
+			<label class="accordion-header" for="accordion-config-l">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config -l [--show-origin]</code>
+			</label>
+			<div class="accordion-body">
+				列出所有配置项目，可选择<code>--show-origin</code>查看配置来源。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-regexp" name="accordion-config-command" hidden>
+			<label class="accordion-header" for="accordion-config-regexp">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --get-regexp 'NAME_REGEX' ['VALUE_REGEX']</code>
+			</label>
+			<div class="accordion-body">
+				搜索 NAME_REGEX 配置项，可选择 VALUE_REGEX 搜索配置值。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config" name="accordion-config-command" hidden>
+			<label class="accordion-header" for="accordion-config">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config NAME VALUE</code>
+			</label>
+			<div class="accordion-body">
+				设置配置项 NAME 的值为 VALUE。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-unset" name="accordion-config-command" hidden>
+			<label class="accordion-header" for="accordion-config-unset">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --unset NAME</code>
+			</label>
+			<div class="accordion-body">
+				删除 NAME 配置项。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-e" name="accordion-config-command" hidden>
+			<label class="accordion-header" for="accordion-config-e">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config -e</code>
+			</label>
+			<div class="accordion-body">
+				使用编辑器直接修改配置文件。
+			</div>
+		</div>
+	</section>
+
+	<section id="note-config-common">
+		<h3 class="title">常用配置<a class="anchor" href="#note-config-common" aria-hidden="true">#</a></h3>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-name" name="accordion-config-common" hidden>
+			<label class="accordion-header" for="accordion-config-name">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --global user.name 'NAME'</code>
+			</label>
+			<div class="accordion-body">
+				设置用户名为 NAME。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-email" name="accordion-config-common" hidden>
+			<label class="accordion-header" for="accordion-config-email">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --global user.email 'EMAIL'</code>
+			</label>
+			<div class="accordion-body">
+				设置电子邮箱为 EMAIL。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-editor" name="accordion-config-common" hidden>
+			<label class="accordion-header" for="accordion-config-editor">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --global core.editor EDITOR</code>
+			</label>
+			<div class="accordion-body">
+				设置 git 的默认编辑器为 EDITOR。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-autocrlf" name="accordion-config-common" hidden>
+			<label class="accordion-header" for="accordion-config-autocrlf">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --global core.autocrlf input</code>
+			</label>
+			<div class="accordion-body">
+				设置提交时将换行符 CRLF 转换为 LF（Linux 格式），检出时不转换（其它可选值：<code>true</code>表示提交时将 CRLF 转换为 LF，检出时将 LF 转换为 CRLF，<code>false</code>表示不转换）。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-safecrlf" name="accordion-config-common" hidden>
+			<label class="accordion-header" for="accordion-config-safecrlf">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --global core.safecrlf warn</code>
+			</label>
+			<div class="accordion-body">
+				设置提交时检查换行符，并在混用换行符时发出警告。（其它可选值：<code>true</code>表示拒绝提交，<code>false</code>表示不做检查）。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-color" name="accordion-config-common" hidden>
+			<label class="accordion-header" for="accordion-config-color">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --global color.ui auto</code>
+			</label>
+			<div class="accordion-body">
+				设置彩色化输出。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-config-conflictstyle" name="accordion-config-common" hidden>
+			<label class="accordion-header" for="accordion-config-conflictstyle">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git config --global merge.conflictstyle diff3</code>
+			</label>
+			<div class="accordion-body">
+				版本冲突时显示 ours, base, theirs 三方差异（默认值<code>merge</code>是 ours, theirs 两方差异）。
+			</div>
+		</div>
+	</section>
+</section>
+
+<section id="note-repository">
+	<h2 class="title">创建仓库<a class="anchor" href="#note-repository" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-init" name="accordion-repository" hidden>
+		<label class="accordion-header" for="accordion-init">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git init [DIR]</code>
+		</label>
+		<div class="accordion-body">
+			在当前目录初始化仓库，可选择在 DIR 目录初始化。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-clone" name="accordion-repository" hidden>
+		<label class="accordion-header" for="accordion-clone">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git clone URL [DIR]</code>
+		</label>
+		<div class="accordion-body">
+			克隆 URL 处的仓库，可选择放在 DIR 目录。
+		</div>
+	</div>
+</section>
+
+<section id="note-ignore">
+	<h2 class="title">忽略文件<a class="anchor" href="#note-ignore" aria-hidden="true">#</a></h2>
+
+	<p>建立<code>.gitignore</code>文本文件，格式如下：</p>
+	<ul>
+		<li>所有空行或者以<code>#</code>开头的行都会被忽略。</li>
+		<li>以<code>/</code>开头表示仅限<code>.gitignore</code>所在目录。</li>
+		<li>以<code>/</code>结尾表示是目录（否则是文件）。</li>
+		<li>以<code>!</code>开头表示不忽略（即使其它位置忽略了）。</li>
+		<li>可以使用标准的 glob 模式匹配。
+			<ul>
+				<li><code>*</code>匹配零个或多个任意字符。</li>
+				<li><code>?</code>匹配一个任意字符。</li>
+				<li><code>[abc]</code>匹配任意一个列在方括号中的字符。</li>
+				<li><code>[a-z]</code>匹配 a-z 之间的字符。</li>
+				<li><code>**</code>匹配任意中间目录。如<code>doc/**/*.pdf</code>匹配<code>doc</code>目录及其子目录中的所有<code>pdf</code>文件。</li>
+			</ul>
+		</li>
+	</ul>
+
+	<p><code>.gitignore</code>文件示例：</p>
+	<pre class="code" data-lang=".gitignore"><code># 忽略所有 .a 文件
+*.a
+
+# 但跟踪 lib.a 文件
+!lib.a
+
+# 仅忽略 .gitignore 所在目录的 TODO 文件
+/TODO
+
+# 忽略所有 build/ 目录下的文件
+build/
+
+# 忽略 doc 目录下的所有 .txt 文件
+doc/*.txt
+
+# 忽略 doc 目录及其子目录下的所有 .pdf 文件
+doc/**/*.pdf
+</code></pre>
+
+	<p>另外，您也可以从 GitHub 下载 <a href="https://github.com/github/gitignore" target="_blank">.gitignore 模板</a>。</p>
+</section>
+
+<section id="note-change">
+	<h2 class="title">处理变更<a class="anchor" href="#note-change" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-status" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-status">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git status [-s]</code>
+		</label>
+		<div class="accordion-body">
+			查看变更状态，可选择<code>-s</code>以缩略方式显示。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-add-paths" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-add-paths">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git add PATHS</code>
+		</label>
+		<div class="accordion-body">
+			添加 PATHS 文件或目录到暂存区，可以使用 glob 匹配，<code>.</code>代表所有文件。注意，文件修改后需要重新添加。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-reset-paths" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-reset-paths">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git reset PATHS</code>
+		</label>
+		<div class="accordion-body">
+			将 PATHS 文件或目录移出暂存区，保留修改的内容。相当于逆向的<code>git add PATHS</code>操作。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-checkout-paths" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-checkout-paths">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git checkout [COMMIT] -- PATHS</code>
+		</label>
+		<div class="accordion-body">
+			<p>将 PATHS 文件或目录还原成当前分支的内容，可选择还原成 COMMIT 的内容。常用参数：</p>
+			<ul>
+				<li><code>-f</code>：强制还原。</li>
+				<li><code>-m</code>：提取合并冲突的结果。</li>
+				<li><code>--ours</code>：提取冲突发生时主分支的内容。</li>
+				<li><code>--theirs</code>：提取冲突发生时被合并分支的内容。</li>
+			</ul>
+			<blockquote>
+				<p><span class="label label-warning">注意</span>：<code>rebase</code>的合并方向与<code>merge</code>是反向的，即当前分支是被合并分支，而目标分支是主分支。</p>
+			</blockquote>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-rm" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-rm">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git rm PATHS</code>
+		</label>
+		<div class="accordion-body">
+			<p>删除 PATHS 文件或目录并暂存。常用参数：</p>
+			<ul>
+				<li><code>-n</code>：演示哪些文件会被删除（不实际删除）。</li>
+				<li><code>-f</code>：强制删除。</li>
+				<li><code>-r</code>：递归删除目录。</li>
+				<li><code>--cached</code>：保留文件，仅删除暂存区的内容。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-mv" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-mv">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git mv PATH [...] PATH2</code>
+		</label>
+		<div class="accordion-body">
+			<p>将 PATH 文件或目录移动或重命名为 PATH2 并暂存，现有 PATH2 目录时可选择<code>...</code>移动到该目录。常用参数：</p>
+			<ul>
+				<li><code>-n</code>：演示哪些文件会被移动或更名（不实际发生效果）。</li>
+				<li><code>-f</code>：强制移动或更名。</li>
+				<li><code>-k</code>：忽略错误的移动或更名。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-diff" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-diff">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git diff</code>
+		</label>
+		<div class="accordion-body">
+			<p>比较已修改文件与暂存文件（即将提交）间的差异。常用参数：</p>
+			<ul>
+				<li><code>-p</code>：显示差异，默认值。</li>
+				<li><code>-b</code>：忽略空白修改。注意，行尾空格也会被忽略。</li>
+				<li><code>--stat</code>：显示修改统计信息。</li>
+				<li><code>--numstat</code>：显示每个文件的增删信息。</li>
+				<li><code>-- PATHS</code>：仅比较 PATHS 文件或目录。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-diff-cached" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-diff-cached">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git diff --cached</code>
+		</label>
+		<div class="accordion-body">
+			比较暂存区与上次提交间的差异，<code>--cached</code>有个别名<code>--staged</code>。常用参数见<code>git diff</code>。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-difftool" name="accordion-change" hidden>
+		<label class="accordion-header" for="accordion-difftool">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git difftool --tool-help</code>
+		</label>
+		<div class="accordion-body">
+			查看系统支持哪些 diff 插件。
+		</div>
+	</div>
+</section>
+
+<section id="note-commit">
+	<h2 class="title">提交<a class="anchor" href="#note-commit" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-commit" name="accordion-commit" hidden>
+		<label class="accordion-header" for="accordion-commit">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git commit [-m 'MESSAGE']</code>
+		</label>
+		<div class="accordion-body">
+			将暂存区内的文件提交，会调用默认编辑器输入说明信息。可选择<code>-m</code>直接附加 MESSAGE 说明信息。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-commit-amend" name="accordion-commit" hidden>
+		<label class="accordion-header" for="accordion-commit-amend">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git commit --amend</code>
+		</label>
+		<div class="accordion-body">
+			<span class="label label-error">警告</span>：修改最后一次提交，可以修改提交信息并提交新的暂存区文件。最后一次提交应仅存在于本地，否则会引起错乱。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-reset-soft" name="accordion-commit" hidden>
+		<label class="accordion-header" for="accordion-reset-soft">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git reset --soft COMMIT</code>
+		</label>
+		<div class="accordion-body">
+			将当前分支指向 COMMIT（COMMIT 之后修改的内容在暂存区）。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-reset" name="accordion-commit" hidden>
+		<label class="accordion-header" for="accordion-reset">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git reset COMMIT</code>
+		</label>
+		<div class="accordion-body">
+			将当前分支和暂存区都恢复到 COMMIT 时的内容（COMMIT 之后修改的内容在工作目录）。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-reset-hard" name="accordion-commit" hidden>
+		<label class="accordion-header" for="accordion-reset-hard">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git reset --hard COMMIT</code>
+		</label>
+		<div class="accordion-body">
+			<span class="label label-error">警告</span>：取消 COMMIT 之后的所有提交（COMMIT 之后修改的内容被丢弃）。不一定能通过<code>git reflog</code>恢复。
+		</div>
+	</div>
+</section>
+
+<section id="note-branch">
+	<h2 class="title">分支操作<a class="anchor" href="#note-branch" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-branch" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-branch">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git branch</code>
+		</label>
+		<div class="accordion-body">
+			<p>列出所有本地分支。常用参数：</p>
+			<ul>
+				<li><code>-vv</code>：列出本地和远程跟踪分支间的关系信息。</li>
+				<li><code>-av</code>：列出所有本地和远程分支的详细信息。</li>
+				<li><code>--merged</code>：列出已经合并到当前分支的分支，前面没有<code>*</code>的通常可以删掉。</li>
+				<li><code>--no-merged</code>：列出未合并到当前分支的分支。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-branch-commit" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-branch-commit">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git branch BRANCH [COMMIT]</code>
+		</label>
+		<div class="accordion-body">
+			创建 BRANCH 分支，可选择从 COMMIT 创建。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-checkout" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-checkout">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git checkout BRANCH</code>
+		</label>
+		<div class="accordion-body">
+			<p>切换到 BRANCH 分支。常用参数：</p>
+			<ul>
+				<li><code>-b</code>：新建 BRANCH 分支并切换。</li>
+				<li><code>-f</code>：丢弃未提交的变更并强制切换。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-merge" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-merge">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git merge COMMITS</code>
+		</label>
+		<div class="accordion-body">
+			<p>将 COMMITS 合并到当前分支。COMMITS 通常使用分支名。常用参数：</p>
+			<ul>
+				<li><code>--ff</code>：默认快进合并时仅更新分支，不创建合并提交（合并提交有多个父节点）。</li>
+				<li><code>--no-ff</code>：即使可以快进合并仍创建合并提交。</li>
+				<li><code>--no-commit</code>：非快进合并时更新文件，但不自动提交（下次提交仍显示为合并提交）。</li>
+				<li><code>--squash</code>：更新当前分支的文件，但不提交（下次提交显示为一般提交，甚至不是快进合并）。可用于压缩多个无意义的提交。</li>
+				<li><code>-Xignore-space-change</code>：忽略空白修改。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-merge-abort" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-merge-abort">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git merge --abort</code>
+		</label>
+		<div class="accordion-body">
+			仅当有合并冲突时使用，可以取消合并。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-cherry-pick" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-cherry-pick">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git cherry-pick COMMITS</code>
+		</label>
+		<div class="accordion-body">
+			<p>在当前分支应用 COMMITS 提交的修改，可以使用提交区间，见<a href="#note-revisions">修订版本</a>。通常会自动生成一系列提交。常用参数：</p>
+			<ul>
+				<li><code>--ff</code>：条件允许时使用快进。</li>
+				<li><code>-n</code>：更新文件但不自动提交。</li>
+				<li><code>-m N</code>：应用合并提交第 N 条分支上的修改，1 是主分支。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-cherry-pick-sequencer" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-cherry-pick-sequencer">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git cherry-pick --continue|--quit|--abort</code>
+		</label>
+		<div class="accordion-body">
+			队列命令，用于在发生合并冲突时继续、退出或取消处理。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-revert" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-revert">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git revert COMMITS</code>
+		</label>
+		<div class="accordion-body">
+			<p>反转 COMMITS 修改的内容并提交，可以使用提交区间，见<a href="#note-revisions">修订版本</a>。本质上是逆向的<code>git cherry-pick</code>操作。常用参数：</p>
+			<ul>
+				<li><code>-n</code>：更新文件但不自动提交。</li>
+				<li><code>-m N</code>：反转合并提交第 N 条分支上的修改，1 是主分支。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-revert-sequencer" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-revert-sequencer">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git revert --continue|--quit|--abort</code>
+		</label>
+		<div class="accordion-body">
+			队列命令，用于在发生合并冲突时继续、退出或取消处理。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-branch-d" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-branch-d">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git branch -d BRANCH</code>
+		</label>
+		<div class="accordion-body">
+			删除 BRANCH 分支。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-branch-m" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-branch-m">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git branch -m BRANCH BRANCH2</code>
+		</label>
+		<div class="accordion-body">
+			将分支 BRANCH 重命名为 BRANCH2。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-rebase" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-rebase">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git rebase COMMIT [BRANCH]</code>
+		</label>
+		<div class="accordion-body">
+			<p><span class="label label-error">警告</span>：将当前分支变基到 COMMIT，可选择指定 BRANCH 分支变基。变基的分支应仅存在于本地，否则会引起错乱。常用参数：</p>
+			<ul>
+				<li><code>-i</code>：通过交互式变基修改当前分支（或指定 BRANCH 分支）到 COMMIT 的一系列历史提交，此时 COMMIT 通常使用祖先引用。</li>
+				<li><code>--onto BASE</code>：在 BASE 提交上应用变更。</li>
+				<li><code>-f</code>：即使当前分支已更新仍强制变基，通常在反转合并后使用。</li>
+				<li><code>--no-ff</code>：在交互式变基时，对未修改而需要变基的提交执行<code>cherry-pick</code>，这可以确保变基分支的完整（否则重复的快进会被忽略）。非交互式变基时，该参数与<code>-f</code>的效果一致。</li>
+			</ul>
+			<blockquote>
+				<p><span class="label label-success">提示</span>：变基操作的处理过程：</p>
+				<ol>
+					<li>如果指定了 BRANCH 分支，则先<code>git checkout BRANCH</code>，否则默认是当前分支。</li>
+					<li>取出所有<code>git log COMMIT..BRANCH</code>中的变更（见<a href="#note-revisions">双点提交区间</a>），并放在临时区域。</li>
+					<li>如果指定了<code>--onto BASE</code>，则<code>git reset --hard BASE</code>，否则默认是 COMMIT。</li>
+					<li>在当前分支依次应用临时区域中保存的变更。注意，提交区间<code>COMMIT..BASE</code>中与<code>COMMIT..BRANCH</code>中变更相同的提交会被忽略。</li>
+					<li>当发生合并冲突时使用下面的队列命令处理。</li>
+				</ol>
+			</blockquote>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-rebase-sequencer" name="accordion-branch" hidden>
+		<label class="accordion-header" for="accordion-rebase-sequencer">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git rebase --continue|--skip|--abort|--edit-todo</code>
+		</label>
+		<div class="accordion-body">
+			队列命令，用于在发生合并冲突时继续下一步、跳过本步骤、完全取消，或交互式变基时编辑进程列表。
+		</div>
+	</div>
+</section>
+
+<section id="note-tag">
+	<h2 class="title">打标签<a class="anchor" href="#note-tag" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-tag-l" name="accordion-tag" hidden>
+		<label class="accordion-header" for="accordion-tag-l">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git tag [-l 'TAG']</code>
+		</label>
+		<div class="accordion-body">
+			列出所有标签，可选择<code>-l</code>只列出包含 TAG 的标签。支持<code>*</code>通配符。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-tag" name="accordion-tag" hidden>
+		<label class="accordion-header" for="accordion-tag">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git tag TAG [COMMIT]</code>
+		</label>
+		<div class="accordion-body">
+			<p>在当前位置添加 TAG 轻量标签，可选择在 COMMIT 打标签。轻量标签没有任何附加信息。常用参数：</p>
+			<ul>
+				<li><code>-a</code>：改为添加附注标签，会调用默认编辑器输入说明信息。</li>
+				<li><code>-m 'MESSAGE'</code>：添加附注标签，直接附加 MESSAGE 说明信息。</li>
+				<li><code>-f</code>：<span class="label label-error">警告</span>：修改同名的标签。修改的标签应仅存在于本地，否则会与其他人不同步。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-tag-d" name="accordion-tag" hidden>
+		<label class="accordion-header" for="accordion-tag-d">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git tag -d TAG</code>
+		</label>
+		<div class="accordion-body">
+			删除 TAG 标签。
+		</div>
+	</div>
+</section>
+
+<section id="note-history">
+	<h2 class="title">历史记录<a class="anchor" href="#note-history" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-log" name="accordion-history" hidden>
+		<label class="accordion-header" for="accordion-log">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git log [REVISIONS]</code>
+		</label>
+		<div class="accordion-body">
+			<p>列出当前分支的历史版本，可选择 REVISIONS 修订版本。常用参数：</p>
+			<ul>
+				<li><code>-p</code>：显示每个更新之间的差异。</li>
+				<li><code>--stat</code>：显示每次更新的文件修改统计信息。</li>
+				<li><code>--name-status</code>：显示新增、修改、删除的文件清单。</li>
+				<li><code>--oneline</code>：单行显示。</li>
+				<li><code>--graph</code>：显示 ASCII 图形表示的分支合并历史。</li>
+				<li><code>--decorate</code>：显示引用名。</li>
+				<li><code>--notes</code>：显示备注。</li>
+				<li><code>--format='FORMAT_STRING'</code>：使用格式字符串 FORMAT_STRING 指定的格式显示。常用的格式占位符：
+					<ul>
+						<li><code>%h</code>：提交对象的简短哈希字串。</li>
+						<li><code>%t</code>：树对象的简短哈希字串。</li>
+						<li><code>%p</code>：父对象的简短哈希字串。</li>
+						<li><code>%an</code>：作者名字。</li>
+						<li><code>%ae</code>：作者电子邮箱。</li>
+						<li><code>%ad</code>：修订日期。</li>
+						<li><code>%cn</code>：提交者名字。</li>
+						<li><code>%ce</code>：提交者电子邮箱。</li>
+						<li><code>%cd</code>：提交日期。</li>
+						<li><code>%d</code>：引用名。</li>
+						<li><code>%s</code>：提交的标题。</li>
+						<li><code>%N</code>：提交的备注。</li>
+						<li><code>%n</code>：换行。</li>
+						<li><code>%C(auto)</code>：自动填色。</li>
+					</ul>
+				</li>
+				<li><code>--all</code>：显示所有引用。</li>
+				<li><code>-N</code>：仅显示最近的 N 条提交。</li>
+				<li><code>--author='REGEX'</code>：仅显示作者名包含 REGEX 的提交。</li>
+				<li><code>--committer='REGEX'</code>：仅显示提交者包含 REGEX 的提交。</li>
+				<li><code>--grep='REGEX'</code>：仅显示提交说明包含 REGEX 的提交。</li>
+				<li><code>--merges</code>：仅显示两方合并的提交（多数合并提交都是这样，但也可能存在多方合并的情况）。</li>
+				<li><code>--no-merges</code>：不显示合并提交（即普通提交和快进提交）。</li>
+				<li><code>-- PATHS</code>：查看 PATHS 文件或目录的历史记录。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-shortlog" name="accordion-history" hidden>
+		<label class="accordion-header" for="accordion-shortlog">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git shortlog [REVISIONS]</code>
+		</label>
+		<div class="accordion-body">
+			类似<code>git log</code>，不过结果更简短，并按照提交的作者分组。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-show-branch" name="accordion-history" hidden>
+		<label class="accordion-header" for="accordion-show-branch">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git show-branch [REFS]</code>
+		</label>
+		<div class="accordion-body">
+			<p>基于某个共同祖先列出所有本地分支，可选择 REFS 指定多个分支名或标签名。常用参数：</p>
+			<ul>
+				<li><code>-a</code>：列出所有本地和远程分支。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-diff-commit" name="accordion-history" hidden>
+		<label class="accordion-header" for="accordion-diff-commit">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git diff [--cached] COMMIT</code>
+		</label>
+		<div class="accordion-body">
+			比较已修改文件与 COMMIT 间的差异，可选择<code>--cached</code>比较暂存区与 COMMIT 间的差异。常用参数见<code>git diff</code>。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-diff-commit2" name="accordion-history" hidden>
+		<label class="accordion-header" for="accordion-diff-commit2">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git diff COMMIT_A..[.]COMMIT_B</code>
+		</label>
+		<div class="accordion-body">
+			使用<code>..</code>比较 COMMIT_A 与 COMMIT_B 间的内容差异，可选择<code>...</code>将起始点设为这两个 COMMIT 的共同祖先。常用参数见<code>git diff</code>。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-show" name="accordion-history" hidden>
+		<label class="accordion-header" for="accordion-show">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git show OBJECT</code>
+		</label>
+		<div class="accordion-body">
+			<p>查看 OBJECT 对象。根据 OBJECT 对象的不同，查看的内容也会不一样。</p>
+			<ul>
+				<li><code>COMMIT</code>：查看提交信息。</li>
+				<li><code>TAG</code>：查看标签信息和提交信息。</li>
+				<li><code>TREE</code>：查看树内容，即<code>git ls-tree --name-only</code>生成的文件名列表。</li>
+				<li><code>BLOB</code>：查看文件内容。</li>
+			</ul>
+			<p><code>git show</code>的大部分参数与<code>git log</code>类似，参见<code>git log</code>。</p>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-reflog" name="accordion-history" hidden>
+		<label class="accordion-header" for="accordion-reflog">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git reflog [REVISION]</code>
+		</label>
+		<div class="accordion-body">
+			列出当前分支的操作记录，相当于<code>git log -g --oneline</code>，可选择列出引用名为 REVISION 的操作记录。可以使用<code>git log</code>的所有参数。
+		</div>
+	</div>
+</section>
+
+<section id="note-stash">
+	<h2 class="title">储藏<a class="anchor" href="#note-stash" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-stash-list" name="accordion-stash" hidden>
+		<label class="accordion-header" for="accordion-stash-list">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git stash list</code>
+		</label>
+		<div class="accordion-body">
+			列出所有储藏的工作。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-stash-show" name="accordion-stash" hidden>
+		<label class="accordion-header" for="accordion-stash-show">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git stash show [STASH]</code>
+		</label>
+		<div class="accordion-body">
+			查看最近一次储藏与储藏时父提交间的差异，可选择以前的<code>STASH</code>储藏。支持<code>git diff</code>的相关参数。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-stash" name="accordion-stash" hidden>
+		<label class="accordion-header" for="accordion-stash">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git stash [save 'MESSAGE']</code>
+		</label>
+		<div class="accordion-body">
+			<p>储藏未提交的跟踪文件，可选择明示<code>save</code>附加 MESSAGE 说明信息。常用参数：</p>
+			<ul>
+				<li><code>-k</code>：不储藏已通过<code>git add</code>命令暂存的文件。</li>
+				<li><code>-u</code>：未跟踪的文件也储藏。</li>
+				<li><code>-p</code>：交互式选择哪些改动需要储藏。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-stash-pop" name="accordion-stash" hidden>
+		<label class="accordion-header" for="accordion-stash-pop">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git stash pop [STASH]</code>
+		</label>
+		<div class="accordion-body">
+			<p>恢复最后一次储藏并从储藏列表中删除该记录，可选择以前的<code>STASH</code>储藏。该操作是<code>git stash save</code>的反向操作。当产生合并冲突时不会直接删除。常用参数：</p>
+			<ul>
+				<li><code>--index</code>：尝试重新暂存文件（默认只恢复文件，暂存状态会消失）。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-stash-apply" name="accordion-stash" hidden>
+		<label class="accordion-header" for="accordion-stash-apply">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git stash apply [STASH]</code>
+		</label>
+		<div class="accordion-body">
+			恢复最后一次储藏，可选择恢复以前的<code>STASH</code>储藏。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-stash-drop" name="accordion-stash" hidden>
+		<label class="accordion-header" for="accordion-stash-drop">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git stash drop [STASH]</code>
+		</label>
+		<div class="accordion-body">
+			删除最后一次储藏，可选择删除以前的<code>STASH</code>储藏。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-stash-branch" name="accordion-stash" hidden>
+		<label class="accordion-header" for="accordion-stash-branch">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git stash branch BRANCH [STASH]</code>
+		</label>
+		<div class="accordion-body">
+			从最近一次储藏创建 BRANCH 分支，可选择以前的<code>STASH</code>储藏。
+		</div>
+	</div>
+</section>
+
+<section id="note-search">
+	<h2 class="title">搜索<a class="anchor" href="#note-search" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-grep" name="accordion-search" hidden>
+		<label class="accordion-header" for="accordion-grep">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git grep 'REGEX' [COMMIT -- PATHS]</code>
+		</label>
+		<div class="accordion-body">
+			<p>在代码库中搜索 REGEX 表达式（可以是纯字符串），可选择<code>COMMIT</code>提交的历史版本，以及<code>--</code>限定 PATHS 文件或目录。常用参数：</p>
+			<ul>
+				<li><code>-c</code>：显示概述，即显示哪些文件包含多少个匹配项。</li>
+				<li><code>-n</code>：显示匹配行的行号。</li>
+				<li><code>-i</code>：忽略大小写。</li>
+				<li><code>-w</code>：全单词匹配，即前后都有非单词字符。</li>
+				<li><code>-v</code>：反选，显示不匹配的行。</li>
+				<li><code>--break</code>：在文件间插入空行。</li>
+				<li><code>--heading</code>：文件名显示在单独的首行，而非在每行的前面。</li>
+				<li><code>-p</code>：显示匹配行属于哪个方法或函数。</li>
+				<li><code>-N</code>：前后多显示 N 行作为参考。</li>
+				<li><code>-e</code>：下一个参数是 REGEX 表达式，用于搜索以<code>-</code>开头的表达式或组合多个表达式。</li>
+				<li><code>--and</code>，<code>--or</code>，<code>--not</code>：多个匹配表达式的组合，默认以 --or 连接。
+					<blockquote>
+						<p><span class="label label-warning">注意</span>：当需要用到<code>()</code>时，请用<code>\(</code>和<code>\)</code>转义，并且与参数间要留空格。</p>
+					</blockquote>
+				</li>
+				<li><code>--all-match</code>：多个匹配表达式需要全部符合。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-log-l" name="accordion-search" hidden>
+		<label class="accordion-header" for="accordion-log-l">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git log -L START,END:FILE</code>
+		</label>
+		<div class="accordion-body">
+			列出文件 FILE 中从 START 到 END 间的版本变更差异。START 和 END 可以是行号或<code>'/REGEX/'</code>表达式。参数中间不要留空格。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-bisect" name="accordion-search" hidden>
+		<label class="accordion-header" for="accordion-bisect">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git bisect start BAD_COMMIT GOOD_COMMIT [-- PATHS]</code>
+		</label>
+		<div class="accordion-body">
+			<p>使用二分法查找第一次出现异常时的提交，可选择仅查找 PATHS 文件或目录。开始时标记 BAD_COMMIT 是存在异常的提交，GOOD_COMMIT 是以前的一个正常提交。之后的工作流程：</p>
+			<ol>
+				<li>系统自动检出这两个 COMMIT 之间的一个提交。</li>
+				<li>程序员确认系统检出的这个提交是否正常。
+					<ul>
+						<li>使用<code>git bisect good</code>标记正常。</li>
+						<li>使用<code>git bisect bad</code>标记异常。</li>
+					</ul>
+				</li>
+				<li>重复前两步，系统自动检出下一个需要确认的提交，程序员确认是否正常。</li>
+				<li>最终找出第一次出现异常时的提交，可以对该次提交分析异常发生的原因，考虑如何处理。</li>
+				<li>使用<code>git bisect reset</code>复位，对异常进行修复。</li>
+			</ol>
+			<p>也可以使用<code>git bisect run SCRIPT</code>应用 SCRIPT 脚本自动调试。</p>
+		</div>
+	</div>
+</section>
+
+<section id="note-remote">
+	<h2 class="title">远程操作<a class="anchor" href="#note-remote" aria-hidden="true">#</a></h2>
+
+	<section id="note-remote-repository">
+		<h3 class="title">远程仓库<a class="anchor" href="#note-remote-repository" aria-hidden="true">#</a></h3>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-remote" name="accordion-remote-repository" hidden>
+			<label class="accordion-header" for="accordion-remote">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git remote [-v]</code>
+			</label>
+			<div class="accordion-body">
+				列出所有远程仓库，可选择<code>-v</code>列出网址。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-remote-show" name="accordion-remote-repository" hidden>
+			<label class="accordion-header" for="accordion-remote-show">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git remote show REMOTE</code>
+			</label>
+			<div class="accordion-body">
+				查看 REMOTE 远程仓库的详情。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-remote-add" name="accordion-remote-repository" hidden>
+			<label class="accordion-header" for="accordion-remote-add">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git remote add REMOTE URL</code>
+			</label>
+			<div class="accordion-body">
+				添加一个网址为 URL 的名为 REMOTE 的远程仓库。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-remote-rename" name="accordion-remote-repository" hidden>
+			<label class="accordion-header" for="accordion-remote-rename">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git remote rename REMOTE REMOTE2</code>
+			</label>
+			<div class="accordion-body">
+				将远程仓库 REMOTE 重命名为 REMOTE2。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-remote-rm" name="accordion-remote-repository" hidden>
+			<label class="accordion-header" for="accordion-remote-rm">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git remote rm REMOTE</code>
+			</label>
+			<div class="accordion-body">
+				删除 REMOTE 远程仓库。
+			</div>
+		</div>
+	</section>
+
+	<section id="note-remote-branch">
+		<h3 class="title">远程分支<a class="anchor" href="#note-remote-branch" aria-hidden="true">#</a></h3>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-fetch" name="accordion-remote-branch" hidden>
+			<label class="accordion-header" for="accordion-fetch">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git fetch [REMOTE] [REFS]</code>
+			</label>
+			<div class="accordion-body">
+				<p>从当前分支对应的远程仓库（默认是 origin）获取更新记录，通常还会获取更新记录中的标签。</p>
+				<p>可选择从 REMOTE 远程仓库获取更新记录。没有指定 REFS 时可使用参数<code>--all</code>代替<code>REMOTE</code>，表示从所有远程仓库获取。</p>
+				<p>可选择 REFS 指定多个要获取的远程引用和更新的本地引用，格式为<code>[+]SRC[:DST]</code>，其中：</p>
+				<ul>
+					<li><code>SRC</code>表示获取远程引用的名称。</li>
+					<li>可选择<code>[:DST]</code>表示更新本地引用的名称，此时 DST 会执行一个快进。</li>
+					<li>可选择<code>+</code>表示即使不能快进也强制更新，通常在远程分支重建或变基后使用。</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-push" name="accordion-remote-branch" hidden>
+			<label class="accordion-header" for="accordion-push">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git push [REMOTE] [REFS]</code>
+			</label>
+			<div class="accordion-body">
+				<p>将当前分支推送到跟踪的同名远程分支。没有指定 REFS 时可使用参数<code>--all</code>表示推送所有分支。</p>
+				<p>可选择推送到 REMOTE 远程仓库。</p>
+				<p>可选择 REFS 指定多个推送的本地提交和更新的远程引用，格式为<code>[+][SRC][:][DST]</code>，其组合：</p>
+				<ul>
+					<li><code>[+]:</code>表示推送所有本地和远程同名的分支。</li>
+					<li><code>[+]SRC</code>表示推送本地的 SRC 引用。如果没有同名的远程引用，则新建一个。</li>
+					<li><code>[+]SRC:DST</code>，此时 SRC 可以使用修订版本的写法，如<code>master~4</code>。DST 表示要更新的远程引用。</li>
+					<li><code>:DST</code>表示删除名为 DST 的远程引用。删除后通常会在服务器上会保留一段时间，直到垃圾回收运行。</li>
+					<li>可选择的<code>+</code>表示强制更新。</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-pull" name="accordion-remote-branch" hidden>
+			<label class="accordion-header" for="accordion-pull">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git pull [REMOTE] [REFS]</code>
+			</label>
+			<div class="accordion-body">
+				<p>从当前分支跟踪的远程分支获取更新并合并，相当于对当前跟踪分支执行<code>git fetch</code>再接<code>git merge</code>。</p>
+				<p><span class="label label-warning">注意</span>：<code>git pull</code>可以使用<code>git fetch</code>和<code>git merge</code>的部分参数，但由于其中间过程不可控，所以最好分别使用这两个命令。</p>
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-checkout-t" name="accordion-remote-branch" hidden>
+			<label class="accordion-header" for="accordion-checkout-t">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git checkout -t REMOTE/BRANCH</code>
+			</label>
+			<div class="accordion-body">
+				跟踪 REMOTE 远程仓库的 BRANCH 分支，相当于<code>git checkout -b BRANCH REMOTE/BRANCH</code>。
+			</div>
+		</div>
+
+		<div class="accordion">
+			<input type="checkbox" id="accordion-branch-u" name="accordion-remote-branch" hidden>
+			<label class="accordion-header" for="accordion-branch-u">
+				<i class="icon icon-arrow-right mr-1"></i>
+				<code>git branch -u REMOTE/BRANCH [BRANCH]</code>
+			</label>
+			<div class="accordion-body">
+				设置当前分支跟踪 REMOTE 远程仓库的 BRANCH 分支，可选择指定本地的 BRANCH 分支跟踪。
+			</div>
+		</div>
+	</section>
+</section>
+
+<section id="note-revisions">
+	<h2 class="title">修订版本<a class="anchor" href="#note-revisions" aria-hidden="true">#</a></h2>
+
+	<p>修订版本的写法包括：</p>
+	<ul>
+		<li>单个修订版本，即 40 位的 SHA-1 值。</li>
+		<li>简短的 SHA-1 值，只需要 SHA-1 的前几位就可以识别。<code>git log</code>加<code>--abbrev-commit</code>参数就可以完全消歧义。</li>
+		<li>分支引用，使用分支名代替该分支的最后一个提交对象。</li>
+		<li>引用日志，使用<code>git reflog [REVISION]</code>查看，<code>HEAD@{0}</code>即代表当前分支<code>HEAD</code>。</li>
+		<li>祖先引用，即在引用的尾部加<code>~</code>或<code>^</code>，后面可以再接数字或重复。
+			<ul>
+				<li><code>~N</code>：第几层父提交，如<code>~2</code>表示父提交的父提交。</li>
+				<li><code>^N</code>：第几个父提交，如<code>^2</code>表示第二个父提交（在合并分支中，合并时的主分支为第一个父提交，被合并的分支为第二个父提交）。</li>
+				<li>组合使用<code>~M^N</code>：第 M 层父提交的第 N 个提交。</li>
+				<li>重复使用<code>^</code>：重复次数的父提交，如<code>^^</code>表示第一个父提交的第一个父提交（等价于<code>~2</code>）。</li>
+			</ul>
+		</li>
+		<li><code>[BRANCH]@{u}</code>，当前分支（或 BRANCH 分支）跟踪的远程分支。</li>
+		<li><code>REVISION:PATH</code>，树对象或提交对象 REVISION 内的 PATH 文件或树对象，如<code>git show master:docs/</code>查看<code>master</code>分支中<code>docs</code>目录中的文件列表。</li>
+		<li><code>:/REGEX</code>，最近一次说明中包含 REGEX 的提交。</li>
+		<li><code>REVISION^{/REGEX}</code>，类似于<code>:/REGEX</code>，但是从 REVISION 开始查找。</li>
+		<li><code>:N:PATH</code>，选择合并提交时 PATH 的文件状态。N 的值在 0-3 之间。其中：
+			<ul>
+				<li><code>0</code>表示当前状态。</li>
+				<li><code>1</code>表示合并的共同祖先。</li>
+				<li><code>2</code>表示主分支（ours）。</li>
+				<li><code>3</code>表示被合并的分支（theirs）。</li>
+			</ul>
+		</li>
+	</ul>
+
+	<p>提交区间的写法包括：</p>
+	<ul>
+		<li>多点提交区间，如<code>git log refA refB ^refC</code>表示包含在 refA, refB 但不在 refC 中的提交记录。</li>
+		<li>双点提交区间，如<code>git log BRANCH..BRANCH2</code>表示在 BRANCH2 分支但不在 BRANCH 分支中的提交记录。常用场景<code>git log origin/master..</code>列出即将推送到远程仓库的提交（HEAD 是默认值，所以可以省略）。</li>
+		<li>三点提交区间，如<code>git log BRANCH...BRANCH2</code>表示只在这两个分支中的一个包含，但不同时包含的提交记录。这时经常会用到<code>--left-right</code>参数，显示提交到底处于哪一侧的分支。</li>
+	</ul>
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：<code>git diff</code>中的<code>..</code>或<code>...</code>表示提交间的差异，而不是上面所述的提交区间，两者别弄混了。</p>
+	</blockquote>
+</section>
+
+<section id="note-alias">
+	<h2 class="title">别名<a class="anchor" href="#note-alias" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-alias" name="accordion-alias" hidden>
+		<label class="accordion-header" for="accordion-alias">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git config --global alias.ALIAS '[!]COMMAND'</code>
+		</label>
+		<div class="accordion-body">
+			使用 ALIAS 别名代替 COMMAND 命令。默认 COMMAND 是 git 内部命令，可选择<code>!</code>运行外部命令。使用<code>git ALIAS</code>运行。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-config-alias" name="accordion-alias" hidden>
+		<label class="accordion-header" for="accordion-config-alias">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git config --get-regexp alias</code>
+		</label>
+		<div class="accordion-body">
+			列出所有别名所代表的命令。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-config-unset-alias" name="accordion-alias" hidden>
+		<label class="accordion-header" for="accordion-config-unset-alias">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git config --global --unset alias.ALIAS</code>
+		</label>
+		<div class="accordion-body">
+			删除 ALIAS 命令别名。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-alias-logf" name="accordion-alias" hidden>
+		<label class="accordion-header" for="accordion-alias-logf">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git config --global alias.logf 'log --format="%Cgreen%cd %C(auto)%h %d%s" --date=short'</code>
+		</label>
+		<div class="accordion-body">
+			使用<code>git logf</code>显示格式化的分支合并历史。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-alias-logogda" name="accordion-alias" hidden>
+		<label class="accordion-header" for="accordion-alias-logogda">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git config --global alias.logogda 'log --oneline --graph --decorate --all'</code>
+		</label>
+		<div class="accordion-body">
+			使用<code>git logogda</code>显示所有提交和分支的历史记录。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-alias-reflogd" name="accordion-alias" hidden>
+		<label class="accordion-header" for="accordion-alias-reflogd">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git config --global alias.reflogd 'reflog --date=format:"%Y-%m-%d %H:%M:%S"'</code>
+		</label>
+		<div class="accordion-body">
+			使用<code>git reflogd</code>查看引用日志时显示日期和时间。
+		</div>
+	</div>
+</section>
+
+<section id="note-notes">
+	<h2 class="title">对象备注<a class="anchor" href="#note-notes" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-notes" name="accordion-notes" hidden>
+		<label class="accordion-header" for="accordion-notes">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git notes</code>
+		</label>
+		<div class="accordion-body">
+			<p>给对象增删备注。通常用于在不改变提交历史的情况下，给提交对象增加文字说明。这些文字会在<code>git log</code>、<code>git show</code>时与最初的提交信息一起显示。</p>
+			<blockquote>
+				<p><span class="label label-warning">注意</span>：对象备注功能目前还不太完善，不建议使用。如果确定要使用，请留意以下知识点：</p>
+				<ul>
+					<li>备注默认使用<code>refs/notes/commits</code>引用。</li>
+					<li>备注也有提交的历史记录，删除一个备注会增加一个删除备注的提交。备注甚至还有引用日志，但这些历史记录和引用日志没什么用处。</li>
+					<li>使用<code>git show-ref</code>可以查看所有本地引用，使用<code>git update-ref</code>可以安全地修改或删除引用。</li>
+					<li>使用<code>git ls-remote</code>可以查看所有远程引用，使用<code>git push</code>可以添加或删除远程引用。</li>
+					<li>使用<code>git fetch</code>和<code>git push</code>时需要指定完整的引用名称。虽然备注可以推送和获取，但合并起来非常不方便。</li>
+				</ul>
+			</blockquote>
+		</div>
+	</div>
+</section>
+
+<section id="note-interactive">
+	<h2 class="title">交互式暂存<a class="anchor" href="#note-interactive" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-add-i" name="accordion-interactive" hidden>
+		<label class="accordion-header" for="accordion-add-i">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git add -i</code>
+		</label>
+		<div class="accordion-body">
+			进入交互式终端模式。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-add-p" name="accordion-interactive" hidden>
+		<label class="accordion-header" for="accordion-add-p">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git add -p [PATHS]</code>
+		</label>
+		<div class="accordion-body">
+			交互式选择代码片段暂存，可选择仅对 PATHS 文件或目录操作。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-reset-p" name="accordion-interactive" hidden>
+		<label class="accordion-header" for="accordion-reset-p">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git reset -p [PATHS]</code>
+		</label>
+		<div class="accordion-body">
+			交互式取消代码片段暂存，相当于逆向的<code>git add -p [PATHS]</code>操作。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-checkout-p" name="accordion-interactive" hidden>
+		<label class="accordion-header" for="accordion-checkout-p">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git checkout -p [COMMIT] [-- PATHS]</code>
+		</label>
+		<div class="accordion-body">
+			交互式将 PATHS 文件或目录还原成当前分支的内容，可选择还原成 COMMIT 的内容。
+		</div>
+	</div>
+</section>
+
+<section id="note-rerere">
+	<h2 class="title">重用解决方案<a class="anchor" href="#note-rerere" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-config-rerere" name="accordion-rerere" hidden>
+		<label class="accordion-header" for="accordion-config-rerere">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git config --global rerere.enabled true</code>
+		</label>
+		<div class="accordion-body">
+			设置启用<code>git rerere</code>重用记录的合并冲突解决方案。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-rerere-status" name="accordion-rerere" hidden>
+		<label class="accordion-header" for="accordion-rerere-status">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git rerere status</code>
+		</label>
+		<div class="accordion-body">
+			显示将要记录的合并冲突。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-rerere-diff" name="accordion-rerere" hidden>
+		<label class="accordion-header" for="accordion-rerere-diff">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git rerere diff</code>
+		</label>
+		<div class="accordion-body">
+			显示解决方案的当前状态。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-rerere-forget" name="accordion-rerere" hidden>
+		<label class="accordion-header" for="accordion-rerere-forget">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git rerere forget PATH</code>
+		</label>
+		<div class="accordion-body">
+			取消记录 PATH 的冲突解决方案。
+		</div>
+	</div>
+</section>
+
+<section id="note-clean">
+	<h2 class="title">清理文件<a class="anchor" href="#note-clean" aria-hidden="true">#</a></h2>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-ls-ignored" name="accordion-clean" hidden>
+		<label class="accordion-header" for="accordion-ls-ignored">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git ls-files --others --ignored --exclude-standard</code>
+		</label>
+		<div class="accordion-body">
+			显示本项目内所有被忽略的文件。
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-clean" name="accordion-clean" hidden>
+		<label class="accordion-header" for="accordion-clean">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git clean [PATH]</code>
+		</label>
+		<div class="accordion-body">
+			<p><span class="label label-error">警告</span>：删除未跟踪的文件，可选择只删除<code>PATH</code>目录中的文件。常用参数：</p>
+			<ul>
+				<li><code>-n</code>：演示哪些文件会被删除（不实际删除）。</li>
+				<li><code>-d</code>：删除空目录。</li>
+				<li><code>-f</code>：强制删除。</li>
+				<li><code>-x</code>：忽略文件也会被删除（默认不删除，但也不会被提交）。</li>
+				<li><code>-i</code>：交互式选择哪些文件需要删除。</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" id="accordion-filter-rm" name="accordion-clean" hidden>
+		<label class="accordion-header" for="accordion-filter-rm">
+			<i class="icon icon-arrow-right mr-1"></i>
+			<code>git filter-branch --index-filter 'git rm --cached --ignore-unmatch FILE' -- --all</code>
+		</label>
+		<div class="accordion-body">
+			从所有历史提交中删除 FILE 文件。
+		</div>
+	</div>
+</section>
+<!-- NOTE: 上面是正文 -->
+			</article>
+
+			<footer id="bottom">
+				<!-- NOTE: 自动显示当前页面路径 -->
+				<div id="pathname" class="divider text-center"></div>
+			</footer>
+		</div>
+	</section>
+</div>
+<script src="../jac/config.js"></script>
+<script src="../jac/notebook.js"></script>
+</body>
+</html>

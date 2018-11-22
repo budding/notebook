@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<!-- NOTE: 页面标题 -->
+	<title>静态页面</title>
+	<!-- Spectre.css -->
+	<link rel="stylesheet" href="../spectre/dist/spectre.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-icons.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-exp.css">
+	<!-- Notebook.css -->
+	<link rel="stylesheet" href="../jac/notebook.css">
+</head>
+<body>
+<div class="off-canvas off-canvas-sidebar-show">
+	<nav id="topbar">
+		<a class="btn btn-primary btn-action" href="#sidebar">
+			<i class="icon icon-menu"></i>
+		</a>
+		<!-- NOTE: 跳转菜单 -->
+		<div class="dropdown dropdown-right">
+			<a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-location"></i></a>
+			<ul class="menu">
+				<li class="menu-item"><a href="#top"><i class="icon icon-upward"></i> 顶部</a></li>
+				<li class="menu-item"><a href="#note-start">从这里开始</a></li>
+				<li class="menu-item"><a href="#bottom"><i class="icon icon-downward"></i> 底部</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside id="sidebar" class="off-canvas-sidebar">
+		<div id="brand">
+			<a href="../index.html">
+				<i class="icon icon-edit"></i> 记事本
+			</a>
+		</div>
+		<!-- TODO: 动态创建侧边菜单 -->
+		<nav id="menu">
+			<div class="accordion">
+				<input id="accordion-docs" checked="" name="accordion-checkbox" type="checkbox" hidden="">
+				<label class="accordion-header c-hand" for="accordion-docs">
+					<i class="icon icon-arrow-right"></i> 帮助文档
+				</label>
+				<div class="accordion-body">
+					<ul class="menu menu-nav">
+						<li class="menu-item"><a href="index.html">介绍与配置</a></li>
+						<li class="menu-item"><a href="template.html">模板说明</a></li>
+						<li class="menu-item"><a class="active" href="static.html">静态页面</a></li>
+						<li class="menu-item"><a href="document.html">文档模板</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="accordion">
+				<input id="accordion-menu" checked="" name="accordion-checkbox" type="checkbox" hidden="">
+				<label class="accordion-header c-hand" for="accordion-menu">
+					<i class="icon icon-arrow-right"></i> 菜单
+				</label>
+				<div class="accordion-body">
+					<ul class="menu menu-nav">
+						<li class="menu-item"><a href="#">菜单项目一</a></li>
+						<li class="menu-item"><a href="#">菜单项目二</a></li>
+						<li class="menu-item">
+							<div class="accordion">
+								<input id="accordion-title" checked="" name="accordion-checkbox" type="checkbox" hidden="">
+								<label class="accordion-header c-hand" for="accordion-title">
+									<i class="icon icon-arrow-right"></i> 主题页面
+								</label>
+								<div class="accordion-body">
+									<ul class="menu menu-nav">
+										<li class="menu-item"><a href="#">主题一</a></li>
+										<li class="menu-item"><a href="#">主题二</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="accordion">
+								<input id="accordion-list" checked="" name="accordion-checkbox" type="checkbox" hidden="">
+								<label class="accordion-header c-hand" for="accordion-list">
+									<i class="icon icon-arrow-right"></i> 列表页面
+								</label>
+								<div class="accordion-body">
+									<ul class="menu menu-nav">
+										<li class="menu-item"><a href="#">列表一</a></li>
+										<li class="menu-item"><a href="#">列表二</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</aside>
+
+	<a class="off-canvas-overlay" href="#close"></a>
+
+	<section id="content" class="off-canvas-content">
+		<div class="container">
+			<header id="top">
+				<!-- NOTE: 页面标题 -->
+				<h1 class="title">静态页面<a class="anchor" href="#top" aria-hidden="true">#</a></h1>
+
+				<!-- NOTE: 面包屑导航 -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="../index.html">首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="index.html">帮助文档</a>
+					</li>
+				</ul>
+			</header>
+
+			<article id="note">
+<!-- NOTE: 下面是正文 -->
+				<section id="note-start" class="empty">
+					<div class="empty-icon">
+						<i class="icon icon-3x icon-edit"></i>
+					</div>
+					<p class="empty-title h3">从这里开始书写</p>
+					<p class="empty-subtitle">您可以点击下方的按钮查阅帮助文档。</p>
+					<div class="empty-action">
+						<a class="btn btn-primary" href="template.html#note-static">静态页面说明</a>
+					</div>
+				</section>
+<!-- NOTE: 上面是正文 -->
+			</article>
+
+			<footer id="bottom">
+				<!-- NOTE: 显示当前页面路径 -->
+				<div id="pathname" class="divider text-center" data-content="docs/static.html"></div>
+
+				<!-- NOTE: 页脚导航 -->
+				<ul class="pagination">
+					<li class="page-item page-prev">
+						<a href="template.html">
+							<div class="page-item-subtitle"><i class="icon icon-arrow-left"></i> 上一页</div>
+							<div class="page-item-title h5">模板说明</div>
+						</a>
+					</li>
+					<li class="page-item page-next">
+						<a href="document.html">
+							<div class="page-item-subtitle">下一页 <i class="icon icon-arrow-right"></i></div>
+							<div class="page-item-title h5">文档模板</div>
+						</a>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</section>
+</div>
+</body>
+</html>

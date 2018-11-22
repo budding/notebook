@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<!-- NOTE: 页面标题 -->
+	<title>日历模板</title>
+	<!-- Spectre.css -->
+	<link rel="stylesheet" href="../spectre/dist/spectre.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-icons.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-exp.css">
+	<!-- Notebook.css -->
+	<link rel="stylesheet" href="../jac/notebook.css">
+</head>
+<body>
+<div class="off-canvas off-canvas-sidebar-show">
+	<nav id="topbar">
+		<a class="btn btn-primary btn-action" href="#sidebar">
+			<i class="icon icon-menu"></i>
+		</a>
+		<!-- NOTE: 跳转菜单 -->
+		<div class="dropdown dropdown-right">
+			<a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-location"></i></a>
+			<ul class="menu">
+				<li class="menu-item"><a href="#top"><i class="icon icon-upward"></i> 顶部</a></li>
+				<li class="menu-item"><a href="#note-calendar">日历牌</a></li>
+				<li class="menu-item"><a href="#note-description">日历说明</a></li>
+				<li class="menu-item"><a href="#bottom"><i class="icon icon-downward"></i> 底部</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside id="sidebar" class="off-canvas-sidebar">
+		<div id="brand">
+			<a href="../index.html">
+				<i class="icon icon-edit"></i> 记事本
+			</a>
+		</div>
+		<!-- NOTE: 使用 config.js 配置侧边菜单 -->
+		<nav id="menu">
+		</nav>
+	</aside>
+
+	<a class="off-canvas-overlay" href="#close"></a>
+
+	<section id="content" class="off-canvas-content">
+		<div class="container">
+			<header id="top">
+				<!-- NOTE: 页面标题 -->
+				<h1 class="title">日历模板<a class="anchor" href="#top" aria-hidden="true">#</a></h1>
+
+				<!-- NOTE: 面包屑导航 -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="../index.html">首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="index.html">帮助文档</a>
+					</li>
+				</ul>
+			</header>
+
+			<article id="note">
+<!-- NOTE: 下面是正文 -->
+<section id="note-calendar">
+	<h2 class="title">2018年8月<a class="anchor" href="#note-calendar" aria-hidden="true">#</a></h2>
+
+	<div class="calendar calendar-lg">
+		<!-- NOTE: 日历导航栏 -->
+		<div class="calendar-nav navbar">
+			<button class="btn btn-action btn-link btn-lg">
+				<i class="icon icon-arrow-left"></i>
+			</button>
+			<div class="navbar-primary">2018年8月</div>
+			<button class="btn btn-action btn-link btn-lg">
+				<i class="icon icon-arrow-right"></i>
+			</button>
+		</div>
+
+		<div class="calendar-container">
+			<div class="calendar-header">
+				<div class="calendar-date">周日</div>
+				<div class="calendar-date">周一</div>
+				<div class="calendar-date">周二</div>
+				<div class="calendar-date">周三</div>
+				<div class="calendar-date">周四</div>
+				<div class="calendar-date">周五</div>
+				<div class="calendar-date">周六</div>
+			</div>
+
+			<div class="calendar-body">
+				<!-- NOTE: 上个月 -->
+				<div class="calendar-date prev-month">
+					<button class="date-item">29</button>
+				</div>
+				<div class="calendar-date prev-month">
+					<button class="date-item">30</button>
+				</div>
+				<div class="calendar-date prev-month">
+					<button class="date-item">31</button>
+				</div>
+
+				<!-- NOTE: 本月 -->
+				<div class="calendar-date">
+					<button class="date-item">1</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">2</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">3</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">4</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">5</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">6</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">7</button>
+				</div>
+				<!-- NOTE: 日期范围 -->
+				<div class="calendar-date calendar-range range-start tooltip" data-tooltip="开发记事本">
+					<button class="date-item">8</button>
+					<div class="calendar-events">
+						<a class="calendar-event bg-warning text-light" href="timeline.html#note-timeline">开发记事本</a>
+					</div>
+				</div>
+				<div class="calendar-date calendar-range">
+					<button class="date-item">9</button>
+				</div>
+				<div class="calendar-date calendar-range">
+					<button class="date-item">10</button>
+				</div>
+				<div class="calendar-date calendar-range">
+					<button class="date-item">11</button>
+				</div>
+				<div class="calendar-date calendar-range range-end">
+					<button class="date-item">12</button>
+				</div>
+				<!-- NOTE: 提示信息 -->
+				<div class="calendar-date tooltip" data-tooltip="补充说明">
+					<button class="date-item">13</button>
+					<div class="calendar-events">
+						<a class="calendar-event bg-success text-light" href="#note-description">补充说明</a>
+					</div>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">14</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">15</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item date-today">16</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">17</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">18</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">19</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">20</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">21</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">22</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">23</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">24</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">25</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">26</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">27</button>
+				</div>
+				<!-- NOTE: 今天 -->
+				<div class="calendar-date">
+					<button class="date-item">28</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">29</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">30</button>
+				</div>
+				<div class="calendar-date">
+					<button class="date-item">31</button>
+				</div>
+
+				<!-- NOTE: 下个月 -->
+				<div class="calendar-date next-month">
+					<button class="date-item">1</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="note-description">
+	<h2 class="title">日历说明<a class="anchor" href="#note-description" aria-hidden="true">#</a></h2>
+
+	<p>这里是日历补充说明。</p>
+</section>
+<!-- NOTE: 上面是正文 -->
+			</article>
+
+			<footer id="bottom">
+				<!-- NOTE: 自动显示当前页面路径 -->
+				<div id="pathname" class="divider text-center"></div>
+
+				<!-- NOTE: 页脚导航 -->
+				<ul class="pagination">
+					<li class="page-item page-prev">
+						<a href="step.html">
+							<div class="page-item-subtitle"><i class="icon icon-arrow-left"></i> 上一页</div>
+							<div class="page-item-title h5">多步页面模板</div>
+						</a>
+					</li>
+					<li class="page-item page-next">
+						<a href="timeline.html">
+							<div class="page-item-subtitle">下一页 <i class="icon icon-arrow-right"></i></div>
+							<div class="page-item-title h5">时间轴模板</div>
+						</a>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</section>
+</div>
+<script src="../jac/config.js"></script>
+<script src="../jac/notebook.js"></script>
+</body>
+</html>

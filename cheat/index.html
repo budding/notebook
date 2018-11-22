@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<!-- NOTE: 页面标题 -->
+	<title>手册说明</title>
+	<!-- Spectre.css -->
+	<link rel="stylesheet" href="../spectre/dist/spectre.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-icons.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-exp.css">
+	<!-- Notebook.css -->
+	<link rel="stylesheet" href="../jac/notebook.css">
+</head>
+<body>
+<div class="off-canvas off-canvas-sidebar-show">
+	<nav id="topbar">
+		<a class="btn btn-primary btn-action" href="#sidebar">
+			<i class="icon icon-menu"></i>
+		</a>
+		<!-- NOTE: 跳转菜单 -->
+		<div class="dropdown dropdown-right">
+			<a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-location"></i></a>
+			<ul class="menu">
+				<li class="menu-item"><a href="#top"><i class="icon icon-upward"></i> 顶部</a></li>
+				<li class="menu-item"><a href="#note-description">简要介绍</a></li>
+				<li class="menu-item"><a href="#note-markdown">Markdown 介绍</a></li>
+				<li class="menu-item"><a href="#note-git">Git 介绍</a></li>
+				<li class="menu-item"><a href="#bottom"><i class="icon icon-downward"></i> 底部</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside id="sidebar" class="off-canvas-sidebar">
+		<div id="brand">
+			<a href="../index.html">
+				<i class="icon icon-edit"></i> 记事本
+			</a>
+		</div>
+		<!-- NOTE: 使用 config.js 配置侧边菜单 -->
+		<nav id="menu">
+		</nav>
+	</aside>
+
+	<a class="off-canvas-overlay" href="#close"></a>
+
+	<section id="content" class="off-canvas-content">
+		<div class="container">
+			<header id="top">
+				<!-- NOTE: 页面标题 -->
+				<h1 class="title">手册说明<a class="anchor" href="#top" aria-hidden="true">#</a></h1>
+
+				<!-- NOTE: 面包屑导航 -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="../index.html">首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="index.html">速查手册</a>
+					</li>
+				</ul>
+			</header>
+
+			<article id="note">
+<!-- NOTE: 下面是正文 -->
+<section id="note-description">
+	<h2 class="title">简要介绍<a class="anchor" href="#note-description" aria-hidden="true">#</a></h2>
+
+	<p>因为各类语法、命令的内容涵盖广泛，重点内容淹没于其中，导致实际使用过程中，也许 80% 的知识都用不上，而真正需要用到的知识却找不到，所以制作此速查手册。</p>
+
+	<p>速查手册只记录最常用的语法和命令，并只做简短的介绍，便于用户快速查阅。</p>
+</section>
+
+<section id="note-markdown">
+	<h2 class="title">Markdown 介绍<a class="anchor" href="#note-markdown" aria-hidden="true">#</a></h2>
+
+	<p>Markdown 是一种轻量级的标记语言，通过简单的标记语法，就可以实现漂亮的排版。Markdown 具有一系列衍生版本，用于扩展其功能（如表格、脚注、内嵌HTML等等）。记事本默认支持 GitHub Flavored Markdown 格式，其完整的语法可以在<a href="https://github.github.com/gfm/" target="_blank">GFM 官方说明</a>找到。</p>
+
+	<p>需要注意的是，记事本虽然使用标准的 Markdown 语法，但解析方式依照 Spectre.css 的样式重新进行了定义，详见<a href="markdown.html#note-notebook">记事本定制</a>。</p>
+</section>
+
+<section id="note-git">
+	<h2 class="title">Git 介绍<a class="anchor" href="#note-git" aria-hidden="true">#</a></h2>
+
+	<p>Git 是一个开源的分布式版本控制系统，可以敏捷、高效地处理基于文本的大小项目，同时也可以作为内容管理系统，工作管理系统等。<a href="https://git-scm.com/" target="_blank">Git 官网</a>上提供了关于 Git 的完整手册和文档（含<a href="https://git-scm.com/book/zh/v2" target="_blank">中文文档</a>），还有各种类型的 Git 客户端供下载使用。</p>
+
+	<p>通常我们不需要建立自己的代码服务器，而是将项目存放到专业托管平台。在这些代码托管平台中，<a href="https://github.com/" target="_blank">Github</a>可以作为您托管项目的首要选择，它对开源项目免费，但建立私有项目则需要收费。如需免费建立私有项目，可选择<a href="https://gitlab.com/" target="_blank">GitLab</a>或<a href="https://bitbucket.org/" target="_blank">Bitbucket</a>。</p>
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：对这三个项目本身而言，只有 GitLab 是开源的，但它的官网发生过丢失数据的事故。</p>
+	</blockquote>
+</section>
+<!-- NOTE: 上面是正文 -->
+			</article>
+
+			<footer id="bottom">
+				<!-- NOTE: 自动显示当前页面路径 -->
+				<div id="pathname" class="divider text-center"></div>
+			</footer>
+		</div>
+	</section>
+</div>
+<script src="../jac/config.js"></script>
+<script src="../jac/notebook.js"></script>
+</body>
+</html>

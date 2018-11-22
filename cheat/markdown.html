@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<!-- NOTE: 页面标题 -->
+	<title>Markdown 语法</title>
+	<!-- Spectre.css -->
+	<link rel="stylesheet" href="../spectre/dist/spectre.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-icons.css">
+	<link rel="stylesheet" href="../spectre/dist/spectre-exp.css">
+	<!-- Notebook.css -->
+	<link rel="stylesheet" href="../jac/notebook.css">
+	<!-- Marked.js -->
+	<script src="../marked/lib/marked.js"></script>
+</head>
+<body>
+<div class="off-canvas off-canvas-sidebar-show">
+	<nav id="topbar">
+		<a class="btn btn-primary btn-action" href="#sidebar">
+			<i class="icon icon-menu"></i>
+		</a>
+		<!-- NOTE: 跳转菜单 -->
+		<div class="dropdown dropdown-right">
+			<a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-location"></i></a>
+			<ul class="menu">
+				<li class="menu-item"><a href="#top"><i class="icon icon-upward"></i> 顶部</a></li>
+				<li class="menu-item"><a href="#note-hx">标题</a></li>
+				<li class="menu-item"><a href="#note-p">段落</a></li>
+				<li class="menu-item"><a href="#note-blockquote">引用</a></li>
+				<li class="menu-item"><a href="#note-list">列表</a></li>
+				<li class="menu-item"><a href="#note-tasklist">任务列表</a></li>
+				<li class="menu-item"><a href="#note-precode">代码块</a></li>
+				<li class="menu-item"><a href="#note-table">表格</a></li>
+				<li class="menu-item"><a href="#note-hr">分隔线</a></li>
+				<li class="menu-item"><a href="#note-em">强调</a></li>
+				<li class="menu-item"><a href="#note-a">链接</a></li>
+				<li class="menu-item"><a href="#note-img">图片</a></li>
+				<li class="menu-item"><a href="#note-code">行内代码</a></li>
+				<li class="menu-item"><a href="#note-backslash">反斜线</a></li>
+				<li class="menu-item"><a href="#note-notebook">记事本定制</a></li>
+				<li class="menu-item"><a href="#bottom"><i class="icon icon-downward"></i> 底部</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside id="sidebar" class="off-canvas-sidebar">
+		<div id="brand">
+			<a href="../index.html">
+				<i class="icon icon-edit"></i> 记事本
+			</a>
+		</div>
+		<!-- NOTE: 使用 config.js 配置侧边菜单 -->
+		<nav id="menu">
+		</nav>
+	</aside>
+
+	<a class="off-canvas-overlay" href="#close"></a>
+
+	<section id="content" class="off-canvas-content">
+		<div class="container">
+			<header id="top">
+				<!-- NOTE: 页面标题 -->
+				<h1 class="title">Markdown 语法<a class="anchor" href="#top" aria-hidden="true">#</a></h1>
+
+				<!-- NOTE: 面包屑导航 -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="../index.html">首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="index.html">速查手册</a>
+					</li>
+				</ul>
+			</header>
+
+			<article id="note">
+<!-- NOTE: 下面是正文 -->
+<section id="note-hx">
+	<h2 class="title">标题<a class="anchor" href="#note-hx" aria-hidden="true">#</a></h2>
+
+	<p>标题分为多行标题（两种，文字下方加<code>=</code>或<code>-</code>）和单行标题（六种，行首加多个<code>#</code>）。它们只是书写方式不同，实际显示效果是一样的。</p>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>多行标题一
+=====
+
+多行标题二
+-----
+
+# 单行标题一
+## 单行标题二
+### 单行标题三
+#### 单行标题四
+##### 单行标题五
+###### 单行标题六
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+多行标题一
+=====
+
+多行标题二
+-----
+
+# 单行标题一
+## 单行标题二
+### 单行标题三
+#### 单行标题四
+##### 单行标题五
+###### 单行标题六
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-p">
+	<h2 class="title">段落<a class="anchor" href="#note-p" aria-hidden="true">#</a></h2>
+
+	<p>连续的几行显示在一个段落内，使用空行分段。</p>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>第一个段落，
+还是第一个段落
+
+第二个段落
+
+第三个段落
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+第一个段落，
+还是第一个段落
+
+第二个段落
+
+第三个段落
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-blockquote">
+	<h2 class="title">引用<a class="anchor" href="#note-blockquote" aria-hidden="true">#</a></h2>
+
+	<p>在段落前面加<code>&gt;</code>，或者在每一行前面加<code>&gt;</code>，表示引用内容。引用可以嵌套。</p>
+
+	<blockquote>
+		<p><span class="label label-success">提示</span>：在 Markdown 中，很多以起始符开头的语法，在起始符前面都可以留 1-3 个空格，但 4 个空格将被视作<a href="#note-precode">代码块</a>。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>&gt; 引用的段落
+&gt;
+&gt; &gt; 更深层次的引用
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+> 引用的段落
+>
+> > 更深层次的引用
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-list">
+	<h2 class="title">列表<a class="anchor" href="#note-list" aria-hidden="true">#</a></h2>
+
+	<p>列表分为无序列表和有序列表两种。无序列表以<code>+</code>、<code>-</code>、<code>*</code>开头，有序列表以数字开头，后接一个<code>.</code>。起始符后面需要接至少一个空格或制表符。列表可以嵌套。</p>
+
+	<blockquote>
+		<p><span class="label label-success">提示</span>：有序列表的序号是根据第一个序号的数字往后顺序排列的，后面的数字完全相同也无所谓。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>无序列表：
+
+* 列表项目
+* 列表项目
+* 列表项目
+
+有序列表
+
+2. 列表项目
+2. 列表项目
+   * 嵌套列表
+   * 嵌套列表
+2. 列表项目
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+无序列表：
+
+* 列表项目
+* 列表项目
+* 列表项目
+
+有序列表
+
+2. 列表项目
+2. 列表项目
+   * 嵌套列表
+   * 嵌套列表
+2. 列表项目
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-tasklist">
+	<h2 class="title">任务列表（GFM）<a class="anchor" href="#note-tasklist" aria-hidden="true">#</a></h2>
+
+	<p>GitHub Flavored Markdown 支持任务列表。任务列表首先是一个列表，它的项目以<code>[ ]</code>（注意，中间有空格）表示未完成，以<code>[x]</code>表示已完成。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：传统意义上，任务列表使用<code>&lt;input type=&quot;checkbox&quot;&gt;</code>标记元素。但因为该解析方式与 Spectre.css 的默认样式不兼容也不美观，所以记事本对此重新进行了定义，直接使用 Spectre.css 的<code>label</code>和<code>icon</code>样式。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>1. [x] 任务一
+1. [x] 任务二
+1. [ ] 任务三
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+1. [x] 任务一
+1. [x] 任务二
+1. [ ] 任务三
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-precode">
+	<h2 class="title">代码块<a class="anchor" href="#note-precode" aria-hidden="true">#</a></h2>
+
+	<p>代码块使用 4 个空格符或 1 个制表符开头即可。当然，更简单的方法是使用围栏式代码块，以<code>```</code>开始首行（可以在后面加语言代码），并在最后以<code>```</code>结束。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：由于 Markdown 标准与 Spectre.css 的默认样式并不兼容，导致无法完整应用 Spectre.css 的样式，所以记事本依照 Spectre.css 的样式重新进行了定义。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>```ruby
+def foo(x)
+    return 3
+end
+```
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+```ruby
+def foo(x)
+    return 3
+end
+```
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-table">
+	<h2 class="title">表格（GFM）<a class="anchor" href="#note-table" aria-hidden="true">#</a></h2>
+
+	<p>GitHub Flavored Markdown 支持表格。表格的列元素以<code>|</code>分割，并且第二行需要有以<code>-</code>表示的分隔符。可选的，用<code>:</code>放在左边，表示左对齐，或放右边，表示右对齐，或两边都放，表示居中对齐。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：由于 Markdown 标准与 Spectre.css 的默认样式并不兼容，导致无法完整应用 Spectre.css 的样式，所以记事本依照 Spectre.css 的样式重新进行了定义。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>表头一|表头二|表头三
+:---|:--:|---:
+左对齐|居中对齐|右对齐
+单元格一|单元格二|单元格三
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-11 markdown">
+<!--
+表头一|表头二|表头三
+:----|:-----:|----:
+左对齐|居中对齐|右对齐
+单元格一|单元格二|单元格三
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-hr">
+	<h2 class="title">分隔线<a class="anchor" href="#note-hr" aria-hidden="true">#</a></h2>
+
+	<p>使用 3 个以上的<code>-</code>、<code>_</code>、<code>*</code>建立分割线，中间可以插入空格，但是不要有其它的内容。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：传统意义上，分隔线使用<code>&lt;hr&gt;</code>标记。但因为不太美观，所以记事本对此重新进行了定义，直接使用 Spectre.css 的<code>divider</code>样式。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>---
+* * * * *
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+---
+* * * * *
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-em">
+	<h2 class="title">强调<a class="anchor" href="#note-em" aria-hidden="true">#</a></h2>
+
+	<p>有两种强调方式，使用<code>*</code>或<code>_</code>包裹文字表示<code>&lt;em&gt;</code>强调，使用<code>**</code>或<code>__</code>包裹文字表示<code>&lt;strong&gt;</code>强调。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：传统意义上，<code>&lt;em&gt;</code>通常显示为<i>斜体</i>，<code>&lt;strong&gt;</code>通常显示为<b>加粗</b>。但因为这两种显示方式都不太美观，所以记事本对此重新进行了定义，将<code>&lt;em&gt;</code>改为<code>&lt;mark&gt;</code>，<code>&lt;strong&gt;</code>改为<code>&lt;ins&gt;</code>。</p>
+	</blockquote>
+
+	<p>此外，GFM 还支持删除线，用<code>~~</code>包裹文字即可。</p>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>*em 强调*
+
+_em 强调_
+
+**strong 强调**
+
+__strong 强调__
+
+~~删除线~~
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+*em 强调*
+
+_em 强调_
+
+**strong 强调**
+
+__strong 强调__
+
+~~删除线~~
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-a">
+	<h2 class="title">链接<a class="anchor" href="#note-a" aria-hidden="true">#</a></h2>
+
+	<p>链接一般分为行内式和参考式两种。行内式链接的格式为<code>[文字](链接)</code>，一般是一次性使用。参考式链接的格式为<code>[文字][编号]</code>，然后在文章内（文章底部或段落结尾处都可以）用单独的段落定义这个<code>[编号]</code>代表的链接地址<code>[编号]: 链接</code>。参考式便于在文章内多次使用。</p>
+
+	<blockquote>
+		<p><span class="label label-success">提示</span>：链接支持本地相对路径。</p>
+	</blockquote>
+
+	<p>此外，GFM 还支持以 www 开头的网址自动转换为链接，但复杂的网址是否能被正确转换还请自行确认。</p>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-11"><pre class="code" data-lang="Markdown"><code>[百度](https://www.baidu.com/)
+
+[文档模板](../docs/document.html)
+
+[淘宝][taobao]
+也是[淘宝网][taobao]
+
+[taobao]: https://www.taobao.com/
+
+www.qq.com
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-5 markdown">
+<!--
+[百度](https://www.baidu.com/)
+
+[文档模板](../docs/document.html)
+
+[淘宝][taobao]
+也是[淘宝网][taobao]
+
+[taobao]: https://www.taobao.com/
+
+www.qq.com
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-img">
+	<h2 class="title">图片<a class="anchor" href="#note-img" aria-hidden="true">#</a></h2>
+
+	<p>图片与链接非常像，只是前面要加一个<code>!</code>，而且也分为行内式和参考式两种。行内式图片的格式为<code>![文字](图片地址)</code>，一般是一次性使用。参考式图片的格式为<code>![文字][图片编号]</code>，然后在文章内（文章底部或段落结尾处都可以）用单独的段落定义这个<code>[图片编号]</code>代表的图片地址<code>[编号]: 图片地址</code>。参考式便于在文章内多次使用。</p>
+
+	<blockquote>
+		<p><span class="label label-warning">注意</span>：图片都是根据实际大小显示，无法重新定义大小。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-11"><pre class="code" data-lang="Markdown"><code>![图片](http://placehold.it/150&text=image)
+
+![图标][icon]
+也是![图标][icon]
+
+[icon]: http://placehold.it/60&text=icon
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+![图片](http://placehold.it/150&text=image)
+
+![图标][icon]
+也是![图标][icon]
+
+[icon]: http://placehold.it/60&text=icon
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-code">
+	<h2 class="title">行内代码<a class="anchor" href="#note-code" aria-hidden="true">#</a></h2>
+
+	<p>行内代码使用一个或多个<code>`</code>包裹文字即可。</p>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>`foo`
+
+`` foo ` bar  ``
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+`foo`
+
+`` foo ` bar  ``
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-backslash">
+	<h2 class="title">反斜线<a class="anchor" href="#note-backslash" aria-hidden="true">#</a></h2>
+
+	<p>反斜线用于将后面的符号原文呈现。例如<code>*</code>原本是表示<a href="#note-em">强调</a>，但使用<code>\*</code>就可以呈现原始的<code>*</code>了。</p>
+
+	<blockquote>
+		<p><span class="label label-success">提示</span>：HTML 字符实体（如<code>&gt;</code>、<code>&amp;</code>等）在 Markdown 中会自动转化，所以不需要使用反斜线。</p>
+	</blockquote>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>\*原文呈现\*
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+\*原文呈现\*
+-->
+		</div>
+	</div>
+</section>
+
+<section id="note-notebook">
+	<h2 class="title">记事本定制<a class="anchor" href="#note-notebook" aria-hidden="true">#</a></h2>
+
+	<p>如前所述，由于 Markdown 的标准解析方式与 Spectre.css 的默认样式并不兼容，导致无法完整应用 Spectre.css 的样式。而且即使按照标准的 Markdown 作出解析，转换出来的文字也不一定不好看（如<i>中文斜体</i>），所以记事本对 Marked.js 的部分默认解析方式重新进行了定义，包括：<a href="#note-tasklist">任务列表</a>、<a href="#note-precode">代码块</a>、<a href="#note-table">表格</a>、<a href="#note-hr">分隔线</a>、<a href="#note-em">强调</a>。</p>
+
+	<p>此外，由于在记事本中使用 Markdown 时，需要用 HTML 注释<code>&lt!-- ... --&gt;</code>包裹 Markdown 代码块（参见<a href="../docs/template.html#note-document">文档模板</a>）所以为了保证在 Markdown 中仍能表达 HTML 注释，记事本对 Markdown 中的 HTML 注释语法进行了转义，即用<code>&lt!-- ... --!&gt;</code>代替<code>&lt!-- ... --&gt;</code>（注意结尾处多出来的<code>!</code>）。</p>
+
+	<div class="columns col-oneline">
+		<div class="column col-sm-8"><pre class="code" data-lang="Markdown"><code>```HTML
+&lt!-- ... --!&gt;
+```
+</code></pre>
+		</div>
+		<div class="divider-vert" data-content="显示"></div>
+		<div class="column col-sm-8 markdown">
+<!--
+```HTML
+<!-- ... --!>
+```
+-->
+		</div>
+	</div>
+</section>
+<!-- NOTE: 上面是正文 -->
+			</article>
+
+			<footer id="bottom">
+				<!-- NOTE: 自动显示当前页面路径 -->
+				<div id="pathname" class="divider text-center"></div>
+			</footer>
+		</div>
+	</section>
+</div>
+<script src="../jac/config.js"></script>
+<script src="../jac/notebook.js"></script>
+</body>
+</html>
